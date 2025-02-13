@@ -23,6 +23,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = {
@@ -31,13 +37,16 @@
     disko,
     home-manager,
     nvf,
+    nur,
     ...
   } @ inputs: {
     nixosConfigurations.hp-14 = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
+      system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
         inputs.disko.nixosModules.default
+        nur.modules.nixos.default
         ./hp-14/configuration.nix
         {
           home-manager.useGlobalPkgs = true;

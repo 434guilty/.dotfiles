@@ -37,6 +37,7 @@
     tuner
     qbittorrent-enhanced
     ladybird
+    kdePackages.krohnkite
   ];
 
   features = {
