@@ -45,6 +45,7 @@
       fzf.enable = true;
       fastfetch.enable = true;
       starship.enable = true;
+      btop.enable = true;
     };
     desktop = {
       fonts.enable = true;

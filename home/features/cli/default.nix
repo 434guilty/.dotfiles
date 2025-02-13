@@ -4,6 +4,7 @@
     ./fzf.nix
     ./fastfetch.nix
     ./starship.nix
+    ./btop.nix
   ];
 
   programs.zoxide = {
@@ -33,4 +34,4 @@
     fastfetch
     wl-clipboard
   ];
-}
+  }
