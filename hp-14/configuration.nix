@@ -57,7 +57,15 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.settings = {
+      Theme = {
+      CursorTheme = "Bibata-Modern-Ice";
+      CursorSize=16;
+      };
+    };
+  };
 
   services.btrfs.autoScrub.enable = true;
 
@@ -128,6 +136,7 @@
     intel-gpu-tools
     nil
     alejandra
+    bibata-cursors
   ];
 
   users.users.m.shell = pkgs.zsh;

@@ -11,7 +11,9 @@ in {
   config = mkIf cfg.enable {
     programs.btop = {
       enable = true;
-      color_theme = "catppuccin_mocha.theme";
+      settings = {
+        color_theme = "catppuccin_mocha.theme";
+      };  
     };
     home.file = {
       ".config/btop/themes/catppuccin_mocha.theme" = {
