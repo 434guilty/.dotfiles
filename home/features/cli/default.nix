@@ -34,4 +34,4 @@
     fastfetch
     wl-clipboard
   ];
-  }
+}
