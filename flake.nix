@@ -28,6 +28,8 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
@@ -37,6 +39,7 @@
     home-manager,
     nvf,
     nur,
+    catppuccin,
     ...
   } @ inputs: {
     nixosConfigurations.hp-14 = nixpkgs.lib.nixosSystem {

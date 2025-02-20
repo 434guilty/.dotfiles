@@ -14,10 +14,13 @@
 
   imports = [
     inputs.nvf.homeManagerModules.default
+    inputs.catppuccin.homeManagerModules.catppuccin
     ./features/cli
     ./features/desktop
     ./dotfiles
   ];
+
+  catppuccin.flavor = "mocha";
 
   home.username = "m";
   home.homeDirectory = "/home/m";
@@ -38,6 +41,7 @@
     qbittorrent-enhanced
     ladybird
     kdePackages.krohnkite
+    tela-circle-icon-theme
   ];
 
   features = {

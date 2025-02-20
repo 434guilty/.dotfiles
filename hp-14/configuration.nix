@@ -59,7 +59,15 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver = {
     enable = true;
-    displayManager.sddm.settings = {
+  };
+
+  services.btrfs.autoScrub.enable = true;
+
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm = {
+    enable = true;
+    #theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+    settings = {
       Theme = {
         CursorTheme = "Bibata-Modern-Ice";
         CursorSize = 16;
@@ -67,14 +75,16 @@
     };
   };
 
-  services.btrfs.autoScrub.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     oxygen
     okular
+    plasma-browser-integration
+    elisa
+    khelpcenter
+    spectacle
+    krdp
+    xwaylandvideobridge
   ];
 
   # Configure keymap in X11
