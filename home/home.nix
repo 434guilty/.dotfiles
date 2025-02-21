@@ -5,12 +5,12 @@
   inputs,
   ...
 }: {
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
-  };
+  #nixpkgs = {
+  #  config = {
+  #    allowUnfree = true;
+  #    allowUnfreePredicate = _: true;
+  #  };
+  #};
 
   imports = [
     inputs.nvf.homeManagerModules.default
@@ -42,6 +42,8 @@
     ladybird
     kdePackages.krohnkite
     tela-circle-icon-theme
+    handbrake
+    mediainfo
   ];
 
   features = {

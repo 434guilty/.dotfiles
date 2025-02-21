@@ -66,7 +66,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
-    #theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+    theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
     settings = {
       Theme = {
         CursorTheme = "Bibata-Modern-Ice";
@@ -74,6 +74,9 @@
       };
     };
   };
+
+  services.desktopManager.cosmic.enable = true;
+  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -147,6 +150,8 @@
     nil
     alejandra
     bibata-cursors
+    nix-prefetch-git
+    kdePackages.qtmultimedia
   ];
 
   users.users.m.shell = pkgs.zsh;

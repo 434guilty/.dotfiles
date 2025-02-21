@@ -30,6 +30,10 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
   };
 
   outputs = {
@@ -40,15 +44,23 @@
     nvf,
     nur,
     catppuccin,
+    nixos-cosmic,
     ...
   } @ inputs: {
     nixosConfigurations.hp-14 = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       system = "x86_64-linux";
       modules = [
+        {
+          nix.settings = {
+            substituters = ["https://cosmic.cachix.org/"];
+            trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+          };
+        }
         home-manager.nixosModules.home-manager
         inputs.disko.nixosModules.default
         nur.modules.nixos.default
+        nixos-cosmic.nixosModules.default
         ./hp-14/configuration.nix
         {
           home-manager.useGlobalPkgs = true;
