@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./extraServices
+    ./hyprland.nix
   ];
 
   # Bootloader.
@@ -66,7 +67,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
-    theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+    #theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
     settings = {
       Theme = {
         CursorTheme = "Bibata-Modern-Ice";
@@ -75,26 +76,15 @@
     };
   };
 
-  services.desktopManager.cosmic.enable = true;
-  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
-
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    oxygen
-    okular
-    plasma-browser-integration
-    elisa
-    khelpcenter
-    spectacle
-    krdp
-    xwaylandvideobridge
-  ];
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
+
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
+  services.blueman.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -111,6 +101,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  security.polkit.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -136,7 +128,7 @@
   };
 
   extraServices.auto-cpufreq.enable = true;
-  extraServices.flatpak.enable = true;
+  #extraServices.flatpak.enable = true;
   extraServices.gaming.enable = true;
   extraServices.nh.enable = true;
   extraServices.qemu.enable = true;
@@ -152,7 +144,60 @@
     bibata-cursors
     nix-prefetch-git
     kdePackages.qtmultimedia
+    tela-circle-icon-theme
   ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    jetbrains-mono
+    font-awesome
+    terminus_font
+    victor-mono
+    nerd-fonts.jetbrains-mono # unstable
+    nerd-fonts.fira-code # unstable
+    nerd-fonts.fantasque-sans-mono #unstable
+    cascadia-code
+  ];
+
+  stylix.enable = true;
+
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
+  #stylix.image = ./1.webp;
+
+  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.name = "Bibata-Modern-Ice";
+  stylix.cursor.size = 16;
+
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrainsMono Nerd Font Mono";
+    };
+    sansSerif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
+    };
+    serif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
+    };
+  };
+
+  stylix.fonts.sizes = {
+    applications = 10;
+    terminal = 9;
+    desktop = 9;
+    popups = 9;
+  };
+
+  stylix.opacity = {
+    #applications = 1.0;
+    #terminal = 1.0;
+    #desktop = 1.0;
+    popups = 0.8;
+  };
 
   users.users.m.shell = pkgs.zsh;
 

@@ -12,7 +12,7 @@ in {
     programs.btop = {
       enable = true;
       settings = {
-        color_theme = "catppuccin_mocha.theme";
+        #color_theme = "catppuccin_mocha.theme";
       };
     };
     home.file = {

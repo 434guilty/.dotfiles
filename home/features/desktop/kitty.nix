@@ -12,9 +12,9 @@ in {
     programs.kitty = {
       enable = true;
       shellIntegration.enableZshIntegration = true;
-      themeFile = "Catppuccin-Mocha";
-      font.name = "CascadiaCode";
-      font.size = 9;
+      #themeFile = "Catppuccin-Mocha";
+      #font.name = "CascadiaCode";
+      #font.size = 9;
       settings = {
         cursor_trail = 3;
         enable_audio-bell = "no";

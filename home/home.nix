@@ -5,22 +5,12 @@
   inputs,
   ...
 }: {
-  #nixpkgs = {
-  #  config = {
-  #    allowUnfree = true;
-  #    allowUnfreePredicate = _: true;
-  #  };
-  #};
-
   imports = [
     inputs.nvf.homeManagerModules.default
-    inputs.catppuccin.homeManagerModules.catppuccin
     ./features/cli
     ./features/desktop
     ./dotfiles
   ];
-
-  catppuccin.flavor = "mocha";
 
   home.username = "m";
   home.homeDirectory = "/home/m";
@@ -40,10 +30,11 @@
     tuner
     qbittorrent-enhanced
     ladybird
-    kdePackages.krohnkite
     tela-circle-icon-theme
     handbrake
     mediainfo
+    (import ./scripts/swww-random.nix {inherit pkgs;})
+    (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
   ];
 
   features = {
@@ -55,7 +46,6 @@
       btop.enable = true;
     };
     desktop = {
-      fonts.enable = true;
       firefox.enable = true;
       kitty.enable = true;
       mangohud.enable = true;
@@ -84,11 +74,12 @@
 
   programs.lazygit.enable = true;
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 16;
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Tela-circle-dark";
+      package = pkgs.tela-circle-icon-theme;
+    };
   };
 
   #for virtualization connection
@@ -98,6 +89,8 @@
       uris = ["qemu:///system"];
     };
   };
+
+  services.blueman-applet.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
