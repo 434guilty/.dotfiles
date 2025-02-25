@@ -4,6 +4,21 @@
   ...
 }: {
   home.packages = with pkgs; [
+    killall
+    pciutils
+    brightnessctl
+    cava
+    cliphist
+    pamixer
+    pavucontrol
+    playerctl
+    rofi-wayland
+    slurp
+    swappy
+    swww
+    wl-clipboard
+    xarchiver
+    waybar
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -19,12 +34,12 @@
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "killall -q swww;sleep .5 && swww init"
-        "killall -q waybar;sleep .5 && waybar"
-        "killall -q swaync;sleep .5 && swaync"
+        "killall -q .waybar-wrapped;sleep .5 && waybar"
+        "killall -q .swaync-wrapped;sleep .5 && swaync"
         "nm-applet --indicator"
         "systemctl --user start hyprpolkitagent"
         #"pypr &"
-        "sleep 1.5 && swww-random Home/m/Downloads/wallpapers"
+        "sleep 1.5 && swww-random ~/Downloads/wallpapers"
       ];
 
       input = {
@@ -282,8 +297,6 @@
         "blur,waybar"
       ];
       env = [
-        "NIXOS_OZONE_WL, 1"
-        "NIXPKGS_ALLOW_UNFREE, 1"
         "XDG_CURRENT_DESKTOP, Hyprland"
         "XDG_SESSION_TYPE, wayland"
         "XDG_SESSION_DESKTOP, Hyprland"
@@ -292,13 +305,11 @@
         "QT_QPA_PLATFORM=wayland;xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "SDL_VIDEODRIVER, x11"
         "MOZ_ENABLE_WAYLAND, 1"
       ];
     };
     extraConfig = "
       monitor=,preferred,auto,auto
     ";
-
   };
 }

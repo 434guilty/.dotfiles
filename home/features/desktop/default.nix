@@ -7,6 +7,7 @@
     ./yazi.nix
     ./nvf.nix
     ./hyprland.nix
+    ./waybar.nix
   ];
 
   home.packages = with pkgs; [

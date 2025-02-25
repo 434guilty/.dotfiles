@@ -74,14 +74,6 @@
 
   programs.lazygit.enable = true;
 
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Tela-circle-dark";
-      package = pkgs.tela-circle-icon-theme;
-    };
-  };
-
   #for virtualization connection
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
@@ -90,7 +82,27 @@
     };
   };
 
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
+
   services.blueman-applet.enable = true;
+
+  stylix.targets.waybar.enable = false;
+
+  stylix.iconTheme.enable = true;
+
+  stylix.iconTheme.package = pkgs.tela-circle-icon-theme;
+
+  stylix.iconTheme.dark = "Tela-circle-dark";
+
+  stylix.iconTheme.light = "Tela-circle-light";
+
+  stylix.polarity = "dark";
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

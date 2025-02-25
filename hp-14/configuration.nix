@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./extraServices
-    ./hyprland.nix
   ];
 
   # Bootloader.
@@ -113,6 +112,19 @@
   programs.firefox.enable = true;
 
   programs.zsh.enable = true;
+  programs.nm-applet.enable = true;
+  programs.nm-applet.indicator = true;
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+      exo
+      mousepad
+      thunar-archive-plugin
+      thunar-volman
+      tumbler
+    ];
+
+  programs.hyprland.enable = true;
+   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   hardware.bluetooth = {
     enable = true;
@@ -170,6 +182,8 @@
   stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.cursor.size = 16;
 
+  stylix.polarity = "dark";
+
   stylix.fonts = {
     monospace = {
       package = pkgs.nerd-fonts.jetbrains-mono;
@@ -197,6 +211,20 @@
     #terminal = 1.0;
     #desktop = 1.0;
     popups = 0.8;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
   };
 
   users.users.m.shell = pkgs.zsh;
