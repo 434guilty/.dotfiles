@@ -57,8 +57,7 @@
           "format" = "{}";
           "rotate" = 0;
           "exec" = "echo ; echo  logout";
-          "on-click" = "logoutlaunch.sh 2";
-          "on-click-right" = "logoutlaunch.sh 1";
+          "on-click" = "wlogout";
           "interval" = 86400;
           "tooltip" = true;
         };
@@ -221,11 +220,12 @@
           };
           "return-type" = "json";
           "exec-if" = "which dunstctl";
-          "exec" = "notifications.py";
+          "exec" = "~/.config/dunst/notifications.py";
           "on-click" = "sleep 0.1 && dunstctl history-pop";
           "on-click-middle" = "dunstctl history-clear";
           "on-click-right" = "dunstctl close-all";
           "interval" = 1;
+          #"tooltip" = true;
           "escape" = true;
         };
 

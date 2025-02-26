@@ -116,15 +116,15 @@
   programs.nm-applet.indicator = true;
   programs.thunar.enable = true;
   programs.thunar.plugins = with pkgs.xfce; [
-      exo
-      mousepad
-      thunar-archive-plugin
-      thunar-volman
-      tumbler
-    ];
+    exo
+    mousepad
+    thunar-archive-plugin
+    thunar-volman
+    tumbler
+  ];
 
   programs.hyprland.enable = true;
-   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   hardware.bluetooth = {
     enable = true;
@@ -157,6 +157,7 @@
     nix-prefetch-git
     kdePackages.qtmultimedia
     tela-circle-icon-theme
+    python3Minimal
   ];
 
   fonts.packages = with pkgs; [

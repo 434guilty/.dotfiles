@@ -8,6 +8,9 @@
     ./nvf.nix
     ./hyprland.nix
     ./waybar.nix
+    ./rofi.nix
+    ./wlogout.nix
+    ./dunst.nix
   ];
 
   home.packages = with pkgs; [

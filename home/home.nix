@@ -35,6 +35,7 @@
     mediainfo
     (import ./scripts/swww-random.nix {inherit pkgs;})
     (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
+    libnotify
   ];
 
   features = {
@@ -103,6 +104,7 @@
 
   stylix.polarity = "dark";
 
+  #services.dunst.settings.global.separator_color = lib.mkForce "transparent";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     killall
     pciutils
@@ -35,8 +31,9 @@
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "killall -q swww;sleep .5 && swww init"
         "killall -q .waybar-wrapped;sleep .5 && waybar"
-        "killall -q .swaync-wrapped;sleep .5 && swaync"
+        #"killall -q .swaync-wrapped;sleep .5 && swaync"
         "nm-applet --indicator"
+        "dunst"
         "systemctl --user start hyprpolkitagent"
         #"pypr &"
         "sleep 1.5 && swww-random ~/Downloads/wallpapers"
@@ -164,6 +161,7 @@
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod+Alt, G, exec, hypr-gamemode"
         "Ctrl+Alt, W, exec, killall .waybar-wrapped || waybar"
+        "$mainMod, Backspace, exec, wlogout"
       ];
       binde = [
         "$mainMod+Shift, Right, resizeactive, 30 0"
