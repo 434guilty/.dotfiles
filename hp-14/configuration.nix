@@ -87,7 +87,6 @@
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -102,6 +101,28 @@
   };
 
   security.polkit.enable = true;
+  security.rtkit.enable = true;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (
+        subject.isInGroup("users")
+          && (
+            action.id == "org.freedesktop.login1.reboot" ||
+            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+            action.id == "org.freedesktop.login1.power-off" ||
+            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+          )
+        )
+      {
+        return polkit.Result.YES;
+      }
+    })
+  '';
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -157,7 +178,6 @@
     nix-prefetch-git
     kdePackages.qtmultimedia
     tela-circle-icon-theme
-    python3Minimal
   ];
 
   fonts.packages = with pkgs; [

@@ -4,7 +4,6 @@
     pciutils
     brightnessctl
     cava
-    cliphist
     pamixer
     pavucontrol
     playerctl
@@ -14,7 +13,6 @@
     swww
     wl-clipboard
     xarchiver
-    waybar
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -31,12 +29,13 @@
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "killall -q swww;sleep .5 && swww init"
         "killall -q .waybar-wrapped;sleep .5 && waybar"
-        #"killall -q .swaync-wrapped;sleep .5 && swaync"
+        "killall -q .swaync-wrapped;sleep .5 && swaync"
         "nm-applet --indicator"
         "dunst"
         "systemctl --user start hyprpolkitagent"
         #"pypr &"
         "sleep 1.5 && swww-random ~/Downloads/wallpapers"
+        "wl-paste --watch cliphist store"
       ];
 
       input = {
@@ -162,6 +161,9 @@
         "$mainMod+Alt, G, exec, hypr-gamemode"
         "Ctrl+Alt, W, exec, killall .waybar-wrapped || waybar"
         "$mainMod, Backspace, exec, wlogout"
+        "$mainMod, L, exec, pidof hyprlock || hyprlock -q"
+        "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod, C, exec, cliphist wipe"
       ];
       binde = [
         "$mainMod+Shift, Right, resizeactive, 30 0"

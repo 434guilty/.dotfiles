@@ -36,6 +36,7 @@
     (import ./scripts/swww-random.nix {inherit pkgs;})
     (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     libnotify
+    cliphist
   ];
 
   features = {
@@ -93,6 +94,8 @@
   services.blueman-applet.enable = true;
 
   stylix.targets.waybar.enable = false;
+
+  stylix.targets.hyprlock.enable = false;
 
   stylix.iconTheme.enable = true;
 

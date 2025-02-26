@@ -22,7 +22,6 @@
           "custom/padd"
           "custom/l_end"
           "custom/power"
-          "custom/cliphist"
           "custom/r_end"
           "custom/l_end"
           "wlr/taskbar"
@@ -58,17 +57,6 @@
           "rotate" = 0;
           "exec" = "echo ; echo  logout";
           "on-click" = "wlogout";
-          "interval" = 86400;
-          "tooltip" = true;
-        };
-
-        "custom/cliphist" = {
-          "format" = "{}";
-          "rotate" = 0;
-          "exec" = "echo ; echo 󰅇 clipboard history";
-          "on-click" = "sleep 0.1 && cliphist.sh c";
-          "on-click-right" = "sleep 0.1 && cliphist.sh d";
-          "on-click-middle" = "sleep 0.1 && cliphist.sh w";
           "interval" = 86400;
           "tooltip" = true;
         };
@@ -202,30 +190,24 @@
         };
 
         "custom/notifications" = {
-          "tooltip" = false;
-          "format" = "{icon} {}";
-          "rotate" = 0;
+          "tooltip" = true;
+          "tooltip-format" = "Left Click: Launch Notification Center\nRight Click: Do not Disturb";
+          "format" = "{} {icon} ";
           "format-icons" = {
-            "email-notification" = "<span foreground='white'><sup></sup></span>";
-            "chat-notification" = "󱋊<span foreground='white'><sup></sup></span>";
-            "warning-notification" = "󱨪<span foreground='yellow'><sup></sup></span>";
-            "error-notification" = "󱨪<span foreground='red'><sup></sup></span>";
-            "network-notification" = "󱂇<span foreground='white'><sup></sup></span>";
-            "battery-notification" = "󰁺<span foreground='white'><sup></sup></span>";
-            "update-notification" = "󰚰<span foreground='white'><sup></sup></span>";
-            "music-notification" = "󰝚<span foreground='white'><sup></sup></span>";
-            "volume-notification" = "󰕿<span foreground='white'><sup></sup></span>";
-            "notification" = "<span foreground='white'><sup></sup></span>";
+            "notification" = "<span foreground='red'><sup></sup></span>";
             "none" = "";
+            "dnd-notification" = "<span foreground='red'><sup></sup></span>";
+            "dnd-none" = "";
+            "inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+            "inhibited-none" = "";
+            "dnd-inhibited-notification" = "<span foreground='red'><sup></sup></span>";
+            "dnd-inhibited-none" = "";
           };
           "return-type" = "json";
-          "exec-if" = "which dunstctl";
-          "exec" = "~/.config/dunst/notifications.py";
-          "on-click" = "sleep 0.1 && dunstctl history-pop";
-          "on-click-middle" = "dunstctl history-clear";
-          "on-click-right" = "dunstctl close-all";
-          "interval" = 1;
-          #"tooltip" = true;
+          "exec-if" = "which swaync-client";
+          "exec" = "swaync-client -swb";
+          "on-click" = "sleep 0.1 && swaync-client -t -sw";
+          "on-click-right" = "swaync-client -d -sw";
           "escape" = true;
         };
 

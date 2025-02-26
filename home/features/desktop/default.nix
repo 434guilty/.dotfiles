@@ -10,7 +10,9 @@
     ./waybar.nix
     ./rofi.nix
     ./wlogout.nix
-    ./dunst.nix
+    ./swaync.nix
+    ./hypridle.nix
+    ./hyprlock.nix
   ];
 
   home.packages = with pkgs; [
