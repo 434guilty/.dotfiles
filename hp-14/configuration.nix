@@ -57,16 +57,18 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver = {
-    enable = true;
-  };
+  #services.xserver = {
+  #  enable = true;
+  #};
 
   services.btrfs.autoScrub.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
-    #theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+    wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+    theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
     settings = {
       Theme = {
         CursorTheme = "Bibata-Modern-Ice";
@@ -144,7 +146,10 @@
     tumbler
   ];
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM  = true;
+  };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   hardware.bluetooth = {
@@ -176,7 +181,8 @@
     alejandra
     bibata-cursors
     nix-prefetch-git
-    kdePackages.qtmultimedia
+    #kdePackages.sddm-kcm
+    kdePackages.qtmultimedia #for sddm theme
     tela-circle-icon-theme
   ];
 

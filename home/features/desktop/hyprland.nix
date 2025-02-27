@@ -13,6 +13,7 @@
     swww
     wl-clipboard
     xarchiver
+    hyprpicker
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -21,7 +22,7 @@
       # hidpi = true;
     };
     # enableNvidiaPatches = false;
-    systemd.enable = true;
+    systemd.enable = false;
 
     settings = {
       exec-once = [
@@ -32,7 +33,7 @@
         "killall -q .swaync-wrapped;sleep .5 && swaync"
         #"nm-applet --indicator"
         #"dunst"
-        "systemctl --user start hyprpolkitagent"
+        #"systemctl --user start hyprpolkitagent"
         #"pypr &"
         "sleep 1.5 && swww-random ~/Downloads/wallpapers"
         "wl-paste --watch cliphist store"
@@ -121,7 +122,7 @@
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, Q, killactive,"
-        "$mainMod, M, exit,"
+        #"$mainMod, M, exit,"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo,"
@@ -166,6 +167,11 @@
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mainMod, C, exec, cliphist wipe"
       ];
+
+      bindd = [
+        "$mainMod+Shift, P,Color Picker , exec, hyprpicker -a" 
+      ];
+
       binde = [
         "$mainMod+Shift, Right, resizeactive, 30 0"
         "$mainMod+Shift, Left, resizeactive, -30 0"

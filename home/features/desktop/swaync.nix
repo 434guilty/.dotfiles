@@ -12,7 +12,7 @@
       "notification-window-width" = 300;
       "fit-to-screen" = false;
       "control-center-height" = 600;
-      "control-center-width" = 300;
+      "control-center-width" = 500;
       "timeout" = 7;
       "timeout-low" = 3;
       "timeout-critical" = 0;
