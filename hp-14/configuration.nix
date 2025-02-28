@@ -35,7 +35,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Africa/Addis_Ababa";
@@ -60,6 +63,10 @@
   #services.xserver = {
   #  enable = true;
   #};
+
+  systemd.sleep.extraConfig = ''
+  HibernateDelaySec=30m
+'';
 
   services.btrfs.autoScrub.enable = true;
 
@@ -184,6 +191,7 @@
     #kdePackages.sddm-kcm
     kdePackages.qtmultimedia #for sddm theme
     tela-circle-icon-theme
+    networkmanagerapplet
   ];
 
   fonts.packages = with pkgs; [

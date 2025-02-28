@@ -26,12 +26,12 @@
 
     settings = {
       exec-once = [
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        #"dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        #"systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "killall -q swww;sleep .5 && swww-daemon"
         "killall -q .waybar-wrapped;sleep .5 && waybar"
-        "killall -q .swaync-wrapped;sleep .5 && swaync"
-        #"nm-applet --indicator"
+        "killall -q .swaync-wrapped;sleep .5 && uwsm app -- swaync"
+        "uwsm app -- nm-applet --indicator"
         #"dunst"
         #"systemctl --user start hyprpolkitagent"
         #"pypr &"
@@ -120,14 +120,14 @@
       };
 
       bind = [
-        "$mainMod, T, exec, $terminal"
+        "$mainMod, T, exec, uwsm app -- $terminal"
         "$mainMod, Q, killactive,"
         #"$mainMod, M, exit,"
-        "$mainMod, E, exec, $fileManager"
-        "$mainMod, R, exec, $menu"
+        "$mainMod, E, exec, uwsm app -- $fileManager"
+        "$mainMod, R, exec, uwsm app -- $menu"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
-        "$mainMod, B, exec, $browser"
+        "$mainMod, B, exec, uwsm app -- $browser"
         "$mainMod, W, togglefloating,"
         "$mainMod, G, togglegroup,"
         "Alt, Return, fullscreen,"
@@ -169,7 +169,7 @@
       ];
 
       bindd = [
-        "$mainMod+Shift, P,Color Picker , exec, hyprpicker -a" 
+        "$mainMod+Shift, P,Color Picker , exec, hyprpicker -a"
       ];
 
       binde = [
@@ -303,17 +303,14 @@
         "blur,logout_dialog"
         "blur,waybar"
       ];
-      env = [
-        "XDG_CURRENT_DESKTOP, Hyprland"
-        "XDG_SESSION_TYPE, wayland"
-        "XDG_SESSION_DESKTOP, Hyprland"
-        "GDK_BACKEND, wayland, x11"
-        "CLUTTER_BACKEND, wayland"
-        "QT_QPA_PLATFORM=wayland;xcb"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "MOZ_ENABLE_WAYLAND, 1"
-      ];
+      #env = [
+      #  "GDK_BACKEND, wayland, x11"
+      #  "CLUTTER_BACKEND, wayland"
+      #  "QT_QPA_PLATFORM=wayland;xcb"
+      #  "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
+      #  "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
+      #  "MOZ_ENABLE_WAYLAND, 1"
+      #];
     };
     extraConfig = "
       monitor=,preferred,auto,auto
