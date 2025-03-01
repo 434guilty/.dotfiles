@@ -122,7 +122,6 @@
       bind = [
         "$mainMod, T, exec, uwsm app -- $terminal"
         "$mainMod, Q, killactive,"
-        #"$mainMod, M, exit,"
         "$mainMod, E, exec, uwsm app -- $fileManager"
         "$mainMod, R, exec, uwsm app -- $menu"
         "$mainMod, P, pseudo,"
@@ -164,7 +163,7 @@
         "Ctrl+Alt, S, exec, killall -q swww-random;sleep .5 && swww-random ~/Downloads/wallpapers"
         "$mainMod, Backspace, exec, wlogout -b 6 -p layer-shell"
         "$mainMod, L, exec, pidof hyprlock || hyprlock -q"
-        "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, cliphist list | dmenu | cliphist decode | wl-copy"
         "$mainMod, C, exec, cliphist wipe"
       ];
 

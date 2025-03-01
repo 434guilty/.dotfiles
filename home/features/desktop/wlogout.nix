@@ -85,7 +85,7 @@
 
       button:hover#lock {
         border-radius: 30px 30px 30px 30px;
-        margin : -15px -15px -15px 0px;
+        margin : -15px -15px -15px -15px;
       }
 
       button:hover#logout {
