@@ -56,7 +56,7 @@
           "format" = "{}";
           "rotate" = 0;
           "exec" = "echo ; echo  logout";
-          "on-click" = "wlogout";
+          "on-click" = "wlogout -b 6 -p layer-shell";
           "interval" = 86400;
           "tooltip" = true;
         };

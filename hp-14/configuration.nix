@@ -140,7 +140,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.firefox.enable = true;
-
+  programs.neovim.defaultEditor = true;
   programs.zsh.enable = true;
   programs.nm-applet.enable = true;
   programs.nm-applet.indicator = true;

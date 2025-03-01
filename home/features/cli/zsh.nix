@@ -14,6 +14,9 @@ in {
       initExtra = "colorscript -e blocks1";
       enableCompletion = true;
       autosuggestion.enable = true;
+      sessionVariables = {
+      EDITOR = "nvim";
+      };
       syntaxHighlighting.enable = true;
       shellAliases = {
         ".." = "cd ..";

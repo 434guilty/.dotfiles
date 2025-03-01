@@ -162,7 +162,7 @@
         "$mainMod+Alt, G, exec, hypr-gamemode"
         "Ctrl+Alt, W, exec, killall .waybar-wrapped || waybar"
         "Ctrl+Alt, S, exec, killall -q swww-random;sleep .5 && swww-random ~/Downloads/wallpapers"
-        "$mainMod, Backspace, exec, wlogout"
+        "$mainMod, Backspace, exec, wlogout -b 6 -p layer-shell"
         "$mainMod, L, exec, pidof hyprlock || hyprlock -q"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mainMod, C, exec, cliphist wipe"
@@ -193,6 +193,7 @@
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86PowerOff, exec, hyprlock & disown && systemctl suspend"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
