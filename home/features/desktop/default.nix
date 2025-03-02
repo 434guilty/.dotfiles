@@ -9,7 +9,7 @@
     ./hyprland.nix
     ./waybar.nix
     ./rofi.nix
-    ./wlogout.nix
+    ./wlogout
     ./swaync.nix
     ./hypridle.nix
     ./hyprlock.nix

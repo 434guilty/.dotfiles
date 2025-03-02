@@ -250,6 +250,7 @@
         "opacity 0.80 0.80,class:^(io.missioncenter.MissionCenter)$"
         "opacity 0.80 0.80,class:^(io.github.flattool.Warehouse)$"
         "opacity 0.80 0.80,class:^(org.pwmt.zathura)$"
+        "opacity 0.80 0.80,class:^(org.qbittorrent.qBittorrent)$"
         "float,class:^(org.kde.dolphin)$,title:^(Progress Dialog — Dolphin)$"
         "float,class:^(org.kde.dolphin)$,title:^(Copying — Dolphin)$"
         "float,title:^(About Mozilla Firefox)$"
