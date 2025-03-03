@@ -8,7 +8,7 @@
         "text" = "Lock";
         "keybind" = "l";
       }
-        
+
       {
         "label" = "logout";
         "action" = "loginctl kill-session $XDG_SESSION_ID";
@@ -43,7 +43,6 @@
         "text" = "Reboot";
         "keybind" = "r";
       }
-      
     ];
     style = ''
       * {

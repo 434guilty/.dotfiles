@@ -15,7 +15,7 @@ in {
       enableCompletion = true;
       autosuggestion.enable = true;
       sessionVariables = {
-      EDITOR = "nvim";
+        EDITOR = "nvim";
       };
       syntaxHighlighting.enable = true;
       shellAliases = {

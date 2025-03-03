@@ -15,6 +15,21 @@
     xarchiver
     hyprpicker
   ];
+
+  home.file = {
+    ".config/uwsm/env" = {
+      text = ''
+        export GDK_BACKEND, wayland, x11
+        export CLUTTER_BACKEND, wayland
+        export QT_QPA_PLATFORM=wayland;xcb
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
+        export QT_AUTO_SCREEN_SCALE_FACTOR, 1
+        export MOZ_ENABLE_WAYLAND, 1
+      '';
+      executable = false;
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland = {

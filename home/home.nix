@@ -37,6 +37,7 @@
     (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     libnotify
     cliphist
+    nwg-displays
   ];
 
   features = {
