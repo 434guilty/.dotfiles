@@ -8,7 +8,7 @@ window {
 
 button {
     color: #a6adc8;
-    background-color: #1e1e2e;
+    background-color: rgba(30,30,46,0.8);
     outline-style: none;
     border: none;
     border-width: 0px;
@@ -22,13 +22,13 @@ button {
 }
 
 button:focus {
-    background-color: #a6adc8;
+    background-color: rgba(166,173,200,0.8);
     background-size: 20%;
     color: #1e1e2e;
 }
 
 button:hover {
-    background-color: #f5c2e7;
+    background-color: rgba(245,194,231,0.8);
     background-size: 25%;
     border-radius: 20px;
     animation: gradient_f 20s ease-in infinite;
