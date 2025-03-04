@@ -13,6 +13,7 @@
     ./swaync.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./heroic-theme.nix
   ];
 
   home.packages = with pkgs; [
