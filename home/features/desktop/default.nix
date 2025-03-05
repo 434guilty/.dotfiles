@@ -14,6 +14,7 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./heroic-theme.nix
+    ./ghostty.nix
   ];
 
   home.packages = with pkgs; [

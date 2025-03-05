@@ -70,6 +70,8 @@
 
   services.btrfs.autoScrub.enable = true;
 
+  services.udisks2.enable = true;
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
@@ -90,8 +92,7 @@
     variant = "";
   };
 
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
+  #services.gvfs.enable = true;
   services.blueman.enable = true;
 
   # Enable sound with pipewire.
@@ -144,14 +145,7 @@
   programs.zsh.enable = true;
   programs.nm-applet.enable = true;
   programs.nm-applet.indicator = true;
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    exo
-    mousepad
-    thunar-archive-plugin
-    thunar-volman
-    tumbler
-  ];
+
 
   programs.hyprland = {
     enable = true;
@@ -192,6 +186,9 @@
     kdePackages.qtmultimedia #for sddm theme
     tela-circle-icon-theme
     networkmanagerapplet
+    kdePackages.dolphin
+    kdePackages.ark
+    hyprpolkitagent
   ];
 
   fonts.packages = with pkgs; [

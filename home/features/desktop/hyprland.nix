@@ -12,7 +12,6 @@
     swappy
     swww
     wl-clipboard
-    xarchiver
     hyprpicker
   ];
 
@@ -43,14 +42,14 @@
       exec-once = [
         #"dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         #"systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "killall -q swww;sleep .5 && swww-daemon"
+        "swww-daemon"
         "killall -q .waybar-wrapped;sleep .5 && waybar"
         "killall -q .swaync-wrapped;sleep .5 && uwsm app -- swaync"
         "uwsm app -- nm-applet --indicator"
         #"dunst"
-        #"systemctl --user start hyprpolkitagent"
+        "systemctl --user start hyprpolkitagent"
         #"pypr &"
-        "sleep 1.5 && swww-random ~/Downloads/wallpapers"
+        "swww-random ~/Downloads/wallpapers"
         "wl-paste --watch cliphist store"
       ];
 
@@ -66,10 +65,15 @@
         };
       };
 
+      device = {
+        name = "compx-2.4g-receiver-mouse";
+        sensitivity = -0.5;
+      };
+
       general = {
         "$mainMod" = "SUPER";
-        "$terminal" = "kitty";
-        "$fileManager" = "thunar";
+        "$terminal" = "ghostty";
+        "$fileManager" = "dolphin";
         "$menu" = "rofi -show drun";
         "$browser" = "firefox";
 
@@ -267,6 +271,10 @@
         "opacity 0.80 0.80,class:^(org.pwmt.zathura)$"
         "opacity 0.80 0.80,class:^(org.qbittorrent.qBittorrent)$"
         "opacity 0.80 0.80,class:^(heroic)$"
+        "opacity 0.80 0.80,class:^(org.telegram.desktop)$"
+        "opacity 0.80 0.80,class:^(ZapZap)$"
+        "opacity 0.80 0.80,class:^(com.mitchellh.ghostty)$"
+        "opacity 0.80 0.80,class:^(GTK Application)$"
         "float,class:^(org.kde.dolphin)$,title:^(Progress Dialog — Dolphin)$"
         "float,class:^(org.kde.dolphin)$,title:^(Copying — Dolphin)$"
         "float,title:^(About Mozilla Firefox)$"

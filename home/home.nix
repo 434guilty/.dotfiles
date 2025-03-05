@@ -37,7 +37,8 @@
     (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     libnotify
     cliphist
-    nwg-displays
+    unrar
+    unzip
   ];
 
   features = {
@@ -50,10 +51,11 @@
     };
     desktop = {
       firefox.enable = true;
-      kitty.enable = true;
+      #kitty.enable = true;
       mangohud.enable = true;
       yazi.enable = true;
       nvf.enable = true;
+      ghostty.enable = true;
     };
   };
 

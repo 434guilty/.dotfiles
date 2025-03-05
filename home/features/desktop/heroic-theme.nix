@@ -6,7 +6,7 @@
 with lib; let
   inherit (config.lib.stylix) colors;
 in {
-  home.file.".config/heroic-theme/catppuccin-mocha.css".text = with colors;
+  home.file.".config/heroic-theme/stylix.css".text = with colors;
   # scss
     ''
       body.catppuccin-mocha {
