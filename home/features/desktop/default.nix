@@ -15,6 +15,7 @@
     ./hyprlock.nix
     ./heroic-theme.nix
     ./ghostty.nix
+    ./qutebrowser.nix
   ];
 
   home.packages = with pkgs; [

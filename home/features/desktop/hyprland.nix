@@ -72,7 +72,7 @@
 
       general = {
         "$mainMod" = "SUPER";
-        "$terminal" = "ghostty";
+        "$terminal" = "kitty";
         "$fileManager" = "dolphin";
         "$menu" = "rofi -show drun";
         "$browser" = "firefox";

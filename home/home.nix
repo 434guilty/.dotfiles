@@ -39,6 +39,8 @@
     cliphist
     unrar
     unzip
+    imv
+    brave
   ];
 
   features = {
@@ -51,11 +53,12 @@
     };
     desktop = {
       firefox.enable = true;
-      #kitty.enable = true;
+      kitty.enable = true;
       mangohud.enable = true;
       yazi.enable = true;
       nvf.enable = true;
-      ghostty.enable = true;
+      #ghostty.enable = true;
+      qutebrowser.enable = true;
     };
   };
 
