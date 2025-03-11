@@ -58,9 +58,11 @@
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
+        repeat_rate = 50;
+        repeat_delay = 300;
         touchpad = {
           natural_scroll = false;
-          disable_while_typing = true;
+          disable_while_typing = false;
           scroll_factor = 0.8;
         };
       };
@@ -73,7 +75,7 @@
       general = {
         "$mainMod" = "SUPER";
         "$terminal" = "kitty";
-        "$fileManager" = "dolphin";
+        "$fileManager" = "thunar";
         "$menu" = "rofi -show drun";
         "$browser" = "firefox";
 
@@ -184,6 +186,10 @@
         "$mainMod, L, exec, pidof hyprlock || hyprlock -q"
         "$mainMod, V, exec, cliphist list | dmenu | cliphist decode | wl-copy"
         "$mainMod, C, exec, cliphist wipe"
+        "$mainMod CTRL, left, movewindow, l"
+        "$mainMod CTRL, right, movewindow, r"
+        "$mainMod CTRL, up, movewindow, u"
+        "$mainMod CTRL, down, movewindow, d"
       ];
 
       bindd = [
@@ -275,6 +281,7 @@
         "opacity 0.80 0.80,class:^(ZapZap)$"
         "opacity 0.80 0.80,class:^(com.mitchellh.ghostty)$"
         "opacity 0.80 0.80,class:^(GTK Application)$"
+        "opacity 0.80 0.80,class:^(thunar)$"
         "float,class:^(org.kde.dolphin)$,title:^(Progress Dialog — Dolphin)$"
         "float,class:^(org.kde.dolphin)$,title:^(Copying — Dolphin)$"
         "float,title:^(About Mozilla Firefox)$"
@@ -306,6 +313,7 @@
         "float,class:^(io.gitlab.adhami3310.Impression)$"
         "float,class:^(io.missioncenter.MissionCenter)$"
         "float,class:^(xdg-desktop-portal-gtk)$"
+        "float,class:^(thunar)$,title:^(File Operation Progress)$"
       ];
 
       windowrule = [

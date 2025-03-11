@@ -21,7 +21,6 @@
     mpv
     yt-dlp
     aria2
-    zathura
     telegram-desktop
     zapzap
     krename
@@ -40,7 +39,6 @@
     unrar
     unzip
     imv
-    brave
   ];
 
   features = {
@@ -59,6 +57,7 @@
       nvf.enable = true;
       #ghostty.enable = true;
       qutebrowser.enable = true;
+      zathura.enable = true;
     };
   };
 
@@ -120,6 +119,16 @@
   #services.dunst.settings.global.separator_color = lib.mkForce "transparent";
   #wayland.windowManager.hyprland.settings.general."col.active_border" = lib.mkForce "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
   #wayland.windowManager.hyprland.settings.general."col.inactive_border" = lib.mkForce "rgba(b4befecc) rgba(6c7086cc) 45deg";
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "application/pdf" = ["org.pwmt.zathura.desktop"];
+    };
+    defaultApplications = {
+      "application/pdf" = ["org.pwmt.zathura.desktop"];
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

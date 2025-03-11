@@ -16,6 +16,7 @@
     ./heroic-theme.nix
     ./ghostty.nix
     ./qutebrowser.nix
+    ./zathura.nix
   ];
 
   home.packages = with pkgs; [
