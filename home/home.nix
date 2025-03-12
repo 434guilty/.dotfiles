@@ -116,6 +116,8 @@
 
   stylix.polarity = "dark";
 
+  stylix.targets.firefox.profileNames = [ "m" ];
+
   #services.dunst.settings.global.separator_color = lib.mkForce "transparent";
   #wayland.windowManager.hyprland.settings.general."col.active_border" = lib.mkForce "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
   #wayland.windowManager.hyprland.settings.general."col.inactive_border" = lib.mkForce "rgba(b4befecc) rgba(6c7086cc) 45deg";
