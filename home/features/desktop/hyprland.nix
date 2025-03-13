@@ -62,7 +62,7 @@
         repeat_delay = 300;
         touchpad = {
           natural_scroll = false;
-          disable_while_typing = false;
+          disable_while_typing = true;
           scroll_factor = 0.8;
         };
       };

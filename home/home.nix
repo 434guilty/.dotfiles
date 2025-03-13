@@ -23,7 +23,6 @@
     aria2
     telegram-desktop
     zapzap
-    krename
     ventoy
     mindustry-wayland
     tuner
