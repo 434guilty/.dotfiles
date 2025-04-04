@@ -282,6 +282,8 @@
         "opacity 0.80 0.80,class:^(com.mitchellh.ghostty)$"
         "opacity 0.80 0.80,class:^(GTK Application)$"
         "opacity 0.80 0.80,class:^(thunar)$"
+        "opacity 0.80 0.80,class:^(com.github.louis77.tuner)$"
+        "opacity 0.70 0.70,class:^(org.gnome.clocks)$"
         "float,class:^(org.kde.dolphin)$,title:^(Progress Dialog — Dolphin)$"
         "float,class:^(org.kde.dolphin)$,title:^(Copying — Dolphin)$"
         "float,title:^(About Mozilla Firefox)$"
@@ -314,6 +316,7 @@
         "float,class:^(io.missioncenter.MissionCenter)$"
         "float,class:^(xdg-desktop-portal-gtk)$"
         "float,class:^(thunar)$,title:^(File Operation Progress)$"
+        "float,class:^(org.gnome.clocks)$"
       ];
 
       windowrule = [

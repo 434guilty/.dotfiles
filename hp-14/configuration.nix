@@ -70,7 +70,6 @@
 
   services.btrfs.autoScrub.enable = true;
 
-
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
@@ -134,7 +133,7 @@
   };
 
   services.gvfs.enable = true;
-	services.tumbler.enable = true;
+  services.tumbler.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -144,19 +143,19 @@
 
   programs.firefox = {
     enable = true;
-  };  
+  };
   programs.neovim.defaultEditor = true;
   programs.zsh.enable = true;
   programs.nm-applet.enable = true;
   programs.nm-applet.indicator = true;
   programs.thunar.enable = true;
-	programs.thunar.plugins = with pkgs.xfce; [
-		  exo
-		  mousepad
-		  thunar-archive-plugin
-		  thunar-volman
-		  tumbler
-  	  ];
+  programs.thunar.plugins = with pkgs.xfce; [
+    exo
+    mousepad
+    thunar-archive-plugin
+    thunar-volman
+    tumbler
+  ];
 
   programs.hyprland = {
     enable = true;
@@ -165,8 +164,8 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.variables = {
-  EDITOR = "nvim";
-  VISUAL = "nvim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   hardware.bluetooth = {
