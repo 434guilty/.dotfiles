@@ -39,6 +39,7 @@
     unzip
     imv
     gnome-clocks
+    mullvad-browser
   ];
 
   features = {

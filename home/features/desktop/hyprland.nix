@@ -13,6 +13,8 @@
     swww
     wl-clipboard
     hyprpicker
+    grim
+    grimblast
   ];
 
   home.file = {
@@ -190,6 +192,8 @@
         "$mainMod CTRL, right, movewindow, r"
         "$mainMod CTRL, up, movewindow, u"
         "$mainMod CTRL, down, movewindow, d"
+        ", Print, exec, grimblast --notify --freeze copysave output"
+        "SHIFT, Print, exec, grimblast --notify --freeze copysave area"
       ];
 
       bindd = [
