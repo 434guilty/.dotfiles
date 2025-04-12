@@ -107,12 +107,12 @@
       };
 
       decoration = {
-        rounding = 3;
+        rounding = 5;
         dim_special = 0.3;
         blur = {
           enabled = true;
           size = 6;
-          passes = 3;
+          passes = 2;
           ignore_opacity = true;
           new_optimizations = true;
           xray = false;
@@ -192,7 +192,7 @@
         "$mainMod CTRL, right, movewindow, r"
         "$mainMod CTRL, up, movewindow, u"
         "$mainMod CTRL, down, movewindow, d"
-        ", Print, exec, grimblast --notify --freeze copysave output"
+        ", Print, exec, grimblast --notify copysave output"
         "SHIFT, Print, exec, grimblast --notify --freeze copysave area"
       ];
 
@@ -288,6 +288,7 @@
         "opacity 0.80 0.80,class:^(thunar)$"
         "opacity 0.80 0.80,class:^(com.github.louis77.tuner)$"
         "opacity 0.70 0.70,class:^(org.gnome.clocks)$"
+        "opacity 0.70 0.70,class:^(org.gnome.Calculator)$"
         "float,class:^(org.kde.dolphin)$,title:^(Progress Dialog — Dolphin)$"
         "float,class:^(org.kde.dolphin)$,title:^(Copying — Dolphin)$"
         "float,title:^(About Mozilla Firefox)$"
@@ -321,6 +322,7 @@
         "float,class:^(xdg-desktop-portal-gtk)$"
         "float,class:^(thunar)$,title:^(File Operation Progress)$"
         "float,class:^(org.gnome.clocks)$"
+        "float,class:^(org.gnome.Calculator)$"
       ];
 
       windowrule = [

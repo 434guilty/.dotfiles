@@ -40,6 +40,7 @@
     imv
     gnome-clocks
     mullvad-browser
+    gnome-calculator
   ];
 
   features = {
