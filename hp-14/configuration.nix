@@ -70,7 +70,10 @@
 
   services.btrfs.autoScrub.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
+  services.logind.extraConfig = ''
+       HandlePowerKey=ignore
+   '';
+
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;

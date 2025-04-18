@@ -194,6 +194,7 @@
         "$mainMod CTRL, down, movewindow, d"
         ", Print, exec, grimblast --notify copysave output"
         "SHIFT, Print, exec, grimblast --notify --freeze copysave area"
+        ", XF86PowerOff, exec, wlogout -b 6 -p layer-shell"
       ];
 
       bindd = [
@@ -221,7 +222,7 @@
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86PowerOff, exec, hyprlock & disown && systemctl suspend"
+        ", switch:on:Lid Switch, exec, hyprlock --immediate"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
