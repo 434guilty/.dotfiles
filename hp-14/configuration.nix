@@ -188,7 +188,7 @@
   #extraServices.flatpak.enable = true;
   extraServices.gaming.enable = true;
   extraServices.nh.enable = true;
-  extraServices.qemu.enable = true;
+  #extraServices.qemu.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
