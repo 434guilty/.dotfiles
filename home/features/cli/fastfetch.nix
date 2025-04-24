@@ -14,6 +14,7 @@ in {
     programs.fastfetch = {
       enable = true;
       settings = {
+        "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
         #logo = {
         # source = "~/.dotfiles/home-manager/apps/fastfetch/pngs/viking-axe-sticker.png";
         # height = 18;
@@ -23,8 +24,10 @@ in {
         };
         modules = [
           {
-            type = "custom";
-            format = "  💻 ";
+            type = "command";
+            key = "  ";
+            keyColor = "blue";
+            text = "splash=$(hyprctl splash);echo $splash";
           }
           {
             type = "custom";
@@ -33,7 +36,7 @@ in {
           {
             type = "chassis";
             key = "  󰇺 Chassis";
-            format = "{3}";
+            format = "{1} {2} {3}";
           }
           {
             type = "os";
@@ -107,10 +110,11 @@ in {
             keyColor = "magenta";
           }
           {
-            type = "command";
+            type = "disk";
             key = "  󱦟 OS Age ";
+            folders = "/";
             keyColor = "red";
-            text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+            format = "{days} days";
           }
           {
             type = "uptime";
