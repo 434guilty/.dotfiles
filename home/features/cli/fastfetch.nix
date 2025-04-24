@@ -25,7 +25,7 @@ in {
         modules = [
           {
             type = "command";
-            key = "  ";
+            key = "  ";
             keyColor = "blue";
             text = "splash=$(hyprctl splash);echo $splash";
           }
@@ -40,7 +40,7 @@ in {
           }
           {
             type = "os";
-            key = "  󰣇 OS";
+            key = "  󰌽 OS";
             format = "{2}";
             keyColor = "red";
           }
