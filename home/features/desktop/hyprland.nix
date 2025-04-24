@@ -291,6 +291,7 @@
         "opacity 0.70 0.70,class:^(org.gnome.clocks)$"
         "opacity 0.70 0.70,class:^(org.gnome.Calculator)$"
         "opacity 0.80 0.80,class:^(imv)$"
+        "opacity 0.80 0.80,class:^(com.rtosta.zapzap)$"
         "float,class:^(org.kde.dolphin)$,title:^(Progress Dialog — Dolphin)$"
         "float,class:^(org.kde.dolphin)$,title:^(Copying — Dolphin)$"
         "float,title:^(About Mozilla Firefox)$"
