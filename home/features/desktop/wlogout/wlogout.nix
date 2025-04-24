@@ -4,7 +4,7 @@
     layout = [
       {
         "label" = "lock";
-        "action" = "loginctl lock-session";
+        "action" = "hyprlock --immediate";
         "text" = "Lock";
         "keybind" = "l";
       }
@@ -18,7 +18,7 @@
 
       {
         "label" = "suspend";
-        "action" = "hyprlock & disown && systemctl suspend";
+        "action" = "hyprlock --immediate & disown && systemctl suspend";
         "text" = "Suspend";
         "keybind" = "u";
       }
