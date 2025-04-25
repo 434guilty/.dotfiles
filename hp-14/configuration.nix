@@ -64,6 +64,34 @@
   #  enable = true;
   #};
 
+  systemd.user.services = {
+    on-battery-power = {
+      enable = true;
+      after = ["network.target"];
+      wantedBy = ["default.target"];
+      description = "On battery power";
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p /run/current-system/sw/share/sounds/freedesktop/stereo/power-unplug.oga'';
+      };
+    };
+    on-ac-power = {
+      enable = true;
+      after = ["network.target"];
+      wantedBy = ["default.target"];
+      description = "On ac power";
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p /run/current-system/sw/share/sounds/freedesktop/stereo/power-plug.oga'';
+      };
+    };
+  };
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="power_supply", ATTR{online}=="0", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-battery-power.service"
+    SUBSYSTEM=="power_supply", ATTR{online}=="1", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-ac-power.service"
+  '';
+
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=30m
   '';
@@ -71,8 +99,8 @@
   services.btrfs.autoScrub.enable = true;
 
   services.logind.extraConfig = ''
-       HandlePowerKey=ignore
-   '';
+    HandlePowerKey=ignore
+  '';
 
   services.displayManager.sddm = {
     enable = true;
