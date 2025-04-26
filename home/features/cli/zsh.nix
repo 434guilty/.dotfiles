@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     programs.zsh = {
       enable = true;
-      initExtra = "colorscript -e blocks1";
+      initContent = "colorscript -e blocks1";
       enableCompletion = true;
       autosuggestion.enable = true;
       sessionVariables = {

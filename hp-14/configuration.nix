@@ -72,7 +72,8 @@
       description = "On battery power";
       serviceConfig = {
         Type = "simple";
-        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p /run/current-system/sw/share/sounds/freedesktop/stereo/power-unplug.oga'';
+        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p --volume 1.7 /run/current-system/sw/share/sounds/freedesktop/stereo/power-unplug.oga'';
+        ExecStartPost = ''${pkgs.libnotify}/bin/notify-send -i /run/current-system/sw/share/icons/Tela-circle-dark/symbolic/status/battery-level-50-symbolic.svg  "Discharging"'';
       };
     };
     on-ac-power = {
@@ -82,7 +83,18 @@
       description = "On ac power";
       serviceConfig = {
         Type = "simple";
-        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p /run/current-system/sw/share/sounds/freedesktop/stereo/power-plug.oga'';
+        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p --volume 1.7 /run/current-system/sw/share/sounds/freedesktop/stereo/power-plug.oga'';
+        ExecStartPost = ''${pkgs.libnotify}/bin/notify-send -i /run/current-system/sw/share/icons/Tela-circle-dark/symbolic/status/ac-adapter-symbolic.svg  "Charger Connected"'';
+      };
+    };
+    low-power-hibernate = {
+      enable = true;
+      after = ["network.target"];
+      wantedBy = ["multi-user.target"];
+      description = "Hibernate on low battery";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = ''${pkgs.systemdMinimal}/bin/systemctl hibernate'';
       };
     };
   };
@@ -90,6 +102,7 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="power_supply", ATTR{online}=="0", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-battery-power.service"
     SUBSYSTEM=="power_supply", ATTR{online}=="1", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-ac-power.service"
+    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", TAG+="systemd", ENV{SYSTEMD_WANTS}+="low-power-hibernate.service" 
   '';
 
   systemd.sleep.extraConfig = ''
