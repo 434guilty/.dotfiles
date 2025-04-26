@@ -5,6 +5,7 @@
   pkgs,
   inputs,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -72,6 +73,7 @@
       description = "On battery power";
       serviceConfig = {
         Type = "simple";
+        ExecStartPre = ''/run/current-system/sw/bin/hypr-gamemode'';
         ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p --volume 1.7 ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/power-unplug.oga'';
         ExecStartPost = ''${pkgs.libnotify}/bin/notify-send -i ${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle-dark/symbolic/status/battery-full-symbolic.svg  "Discharging"'';
       };
@@ -83,6 +85,7 @@
       description = "On ac power";
       serviceConfig = {
         Type = "simple";
+        ExecStartPre = ''/run/current-system/sw/bin/hypr-gamemode'';
         ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p --volume 1.7 ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/power-plug.oga'';
         ExecStartPost = ''${pkgs.libnotify}/bin/notify-send -i ${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle-dark/symbolic/status/battery-full-charging-symbolic.svg  "Charger Connected"'';
       };
@@ -247,6 +250,7 @@
     networkmanagerapplet
     hyprpolkitagent
     xarchiver
+    (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
   ];
 
   fonts.packages = with pkgs; [

@@ -32,7 +32,7 @@
     handbrake
     mediainfo
     (import ./scripts/swww-random.nix {inherit pkgs;})
-    (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
+    #(import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     libnotify
     cliphist
     unrar

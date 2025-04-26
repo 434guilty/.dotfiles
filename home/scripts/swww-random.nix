@@ -2,7 +2,7 @@
 pkgs.writeShellScriptBin "swww-random" ''
 
    if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
-  	echo "Usage:
+  	${pkgs.coreutils}/bin/echo "Usage:
   	$0 <dir containing images>"
   	exit 1
   fi
@@ -17,12 +17,12 @@ pkgs.writeShellScriptBin "swww-random" ''
   while true; do
   	find "$1" -type f \
   		| while read -r img; do
-  			echo "$((RANDOM % 1000)):$img"
+  			${pkgs.coreutils}/bin/echo "$((RANDOM % 1000)):$img"
   		done \
   		| sort -n | cut -d':' -f2- \
   		| while read -r img; do
-  			swww img --transition-type random --resize crop "$img"
-  			sleep $INTERVAL
+  			${pkgs.swww}/bin/swww img --transition-type random --resize crop "$img"
+  			${pkgs.coreutils}/bin/sleep $INTERVAL
   		done
   done
 ''

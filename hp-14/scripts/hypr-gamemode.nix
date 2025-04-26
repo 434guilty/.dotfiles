@@ -2,11 +2,11 @@
 pkgs.writeShellScriptBin "hypr-gamemode" ''
 
   # TODO: Add persistent mode
-  HYPRGAMEMODE=$(hyprctl getoption animations:enabled | sed -n '1p' | awk '{print $2}')
+  HYPRGAMEMODE=$(${pkgs.hyprland}/bin/hyprctl getoption animations:enabled | ${pkgs.gnused}/bin/sed -n '1p' | ${pkgs.gawk}/bin/awk '{print $2}')
 
   # Hyprland performance
   if [ "$HYPRGAMEMODE" = 1 ]; then
-          hyprctl -q --batch "\
+          ${pkgs.hyprland}/bin/hyprctl -q --batch "\
           keyword animations:enabled 0;\
           keyword decoration:shadow:enabled 0;\
           keyword decoration:shadow:xray 1;\
@@ -24,9 +24,9 @@ pkgs.writeShellScriptBin "hypr-gamemode" ''
           keyword layerrule noanim,swww-daemon ;\
           keyword layerrule noanim,rofi
           "
-          hyprctl 'keyword windowrulev2 opaque,class:(.*)' # ensure all windows are opaque
+          ${pkgs.hyprland}/bin/hyprctl 'keyword windowrulev2 opaque,class:(.*)' # ensure all windows are opaque
           exit
   else
-          hyprctl reload config-only -q
+          ${pkgs.hyprland}/bin/hyprctl reload config-only -q
   fi
 ''
