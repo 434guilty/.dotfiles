@@ -13,7 +13,7 @@
     ./swaync.nix
     ./hypridle.nix
     ./hyprlock.nix
-    ./heroic-theme.nix
+    #./heroic-theme.nix
     ./ghostty.nix
     ./qutebrowser.nix
     ./zathura.nix
