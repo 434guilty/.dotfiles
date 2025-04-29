@@ -21,11 +21,25 @@
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "intel_iommu=on"
-      "iommu=pt"
+      #"intel_iommu=on"
+      #"iommu=pt"
       "nowatchdog"
       "modprobe.blacklist=iTCO_wdt"
+      "pcie_aspm.policy=powersupersave"
     ];
+    blacklistedKernelModules = [
+      "snd_hda_codec_hdmi"
+     ];
+    extraModprobeConfig =
+    ''
+    options snd_hda_intel power_save=1 power_save_controller=1
+    options snd_sof_pci_intel_tgl power_save=1
+    '';
+    kernel.sysctl = {
+      # "kernel.nmi_watchdog" = 0;
+      "vm.dirty_writeback_centisecs" = 6000;
+      #"vm.laptop_mode" = 5;
+    };
   };
 
   networking.hostName = "hp-14"; # Define your hostname.
@@ -96,6 +110,7 @@
     SUBSYSTEM=="power_supply", ATTR{online}=="0", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-battery-power.service"
     SUBSYSTEM=="power_supply", ATTR{online}=="1", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-ac-power.service"
     SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="${pkgs.systemd}/bin/systemctl hibernate"
+    ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="med_power_with_dipm"
   '';
 
   systemd.sleep.extraConfig = ''
@@ -241,6 +256,8 @@
     hyprpolkitagent
     xarchiver
     (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
+    s-tui
+    stress-ng
   ];
 
   fonts.packages = with pkgs; [
