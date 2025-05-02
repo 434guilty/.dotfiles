@@ -25,7 +25,7 @@
       #"iommu=pt"
       "nowatchdog"
       "modprobe.blacklist=iTCO_wdt"
-      "pcie_aspm.policy=powersupersave"
+      "pcie_aspm.policy=powersave"
     ];
     blacklistedKernelModules = [
       "snd_hda_codec_hdmi"
@@ -208,6 +208,7 @@
     thunar-volman
     tumbler
   ];
+  programs.localsend.enable = true;
 
   programs.hyprland = {
     enable = true;
