@@ -24,13 +24,13 @@ in {
           #  style = "mocha";
           #};
           languages = {
-            enableLSP = true;
             enableTreesitter = true;
 
             nix.enable = true;
             lua.enable = true;
             bash.enable = true;
           };
+          lsp.enable = true;
           statusline.lualine.enable = true;
           telescope.enable = true;
           autocomplete.nvim-cmp.enable = true;
