@@ -151,9 +151,10 @@
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
         "$mainMod, B, exec, uwsm app -- $browser"
-        "$mainMod, W, togglefloating,"
+        ''$mainMod, W, exec, hyprctl --batch "dispatch togglefloating; dispatch resizeactive exact 80% 80%; dispatch centerwindow"''
         "$mainMod, G, togglegroup,"
         "Alt, Return, fullscreen,"
+        "ALT, Tab, cyclenext"
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
