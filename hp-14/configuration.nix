@@ -191,7 +191,12 @@
   # services.xserver.libinput.enable = true;
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "ventoy-1.1.05"
+    ];
+  };  
 
   programs.firefox = {
     enable = true;
@@ -259,6 +264,7 @@
     (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     s-tui
     stress-ng
+    ventoy
   ];
 
   fonts.packages = with pkgs; [

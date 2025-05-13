@@ -23,7 +23,6 @@
     aria2
     telegram-desktop
     zapzap
-    ventoy
     mindustry-wayland
     tuner
     qbittorrent-enhanced
