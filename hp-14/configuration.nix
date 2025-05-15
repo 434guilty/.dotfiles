@@ -34,6 +34,9 @@
     ''
     options snd_hda_intel power_save=1 power_save_controller=1
     options snd_sof_pci_intel_tgl power_save=1
+    options rtw89_pci disable_clkreq=y
+    options rtw89_pci disable_aspm_l1=y
+    options rtw89_pci disable_aspm_l1ss=y
     '';
     kernel.sysctl = {
       # "kernel.nmi_watchdog" = 0;
