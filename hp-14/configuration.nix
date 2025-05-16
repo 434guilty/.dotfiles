@@ -214,6 +214,7 @@
     tumbler
   ];
   programs.localsend.enable = true;
+  programs.iotop.enable = true;
 
   programs.hyprland = {
     enable = true;
