@@ -26,7 +26,6 @@
     mindustry-wayland
     tuner
     qbittorrent-enhanced
-    ladybird
     tela-circle-icon-theme
     handbrake
     mediainfo
