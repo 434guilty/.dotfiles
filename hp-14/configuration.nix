@@ -267,6 +267,7 @@
     s-tui
     stress-ng
     ventoy
+    du-dust
   ];
 
   fonts.packages = with pkgs; [
