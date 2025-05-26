@@ -123,6 +123,8 @@
     HandlePowerKey=ignore
   '';
 
+  services.journald.extraConfig = "SystemMaxUse=1G";
+
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -268,6 +270,7 @@
     stress-ng
     ventoy
     du-dust
+    dua
   ];
 
   fonts.packages = with pkgs; [
