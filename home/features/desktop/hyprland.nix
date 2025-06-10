@@ -295,6 +295,7 @@
         "opacity 0.80 0.80,class:^(imv)$"
         "opacity 0.80 0.80,class:^(com.rtosta.zapzap)$"
         "opacity 0.80 0.80,class:^(localsend_app)$"
+        "opacity 0.80 0.80,class:^(org.qbittorrent.qBittorrent)$"
         "float,class:^(org.kde.dolphin)$,title:^(Progress Dialog — Dolphin)$"
         "float,class:^(org.kde.dolphin)$,title:^(Copying — Dolphin)$"
         "float,title:^(About Mozilla Firefox)$"
