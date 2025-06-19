@@ -4,8 +4,8 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "434guilty";
     repo = "sddm-theme";
-    rev = "ae8f536fa6f17c1e4017de77a7760982d41e581f";
-    sha256 = "0jm1z2z72ifp98akn0gi17yd4b9xf7cdmgji3pla6dm7zadkya3a";
+    rev = "c09bdb28b7680f15a57660da9a099df51e8408f0";
+    sha256 = "1qbjikbqyi0xx3qg5k8aip0nyg3fm6z3wxnfs4zzc2n5a8y5paxd";
   };
   installPhase = ''
     mkdir -p $out
