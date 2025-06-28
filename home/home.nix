@@ -56,7 +56,7 @@
       yazi.enable = true;
       nvf.enable = true;
       #ghostty.enable = true;
-      qutebrowser.enable = true;
+      #qutebrowser.enable = true;
       zathura.enable = true;
     };
   };
