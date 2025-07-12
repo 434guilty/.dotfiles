@@ -233,10 +233,18 @@
         "$mainMod, X, resizewindow"
       ];
 
-      windowrulev2 = [
+      windowrule = [
+        "idleinhibit fullscreen, class:^(.*celluloid.*)$|^(.*mpv.*)$|^(.*vlc.*)$"
+        "idleinhibit fullscreen, class:^(.*[Ss]potify.*)$"
+        "idleinhibit fullscreen, class:^(.*LibreWolf.*)$|^(.*floorp.*)$|^(.*brave-browser.*)$|^(.*firefox.*)$|^(.*chromium.*)$|^(.*zen.*)$|^(.*vivaldi.*)$"
+        "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "keepaspectratio, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "move 73% 72%, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "size 25%, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "pin, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
         "opacity 0.90 0.90,class:^(firefox)$"
-        "opacity 0.90 0.90,class:^(Google-chrome)$"
-        "opacity 0.90 0.90,class:^(Brave-browser)$"
+        "opacity 0.90 0.90,class:^(brave-browser)$"
         "opacity 0.80 0.80,class:^(code-oss)$"
         "opacity 0.80 0.80,class:^([Cc]ode)$"
         "opacity 0.80 0.80,class:^(code-url-handler)$"
@@ -330,14 +338,20 @@
         "float,class:^(thunar)$,title:^(File Operation Progress)$"
         "float,class:^(org.gnome.clocks)$"
         "float,class:^(org.gnome.Calculator)$"
-      ];
-
-      windowrule = [
         "float,title:^(Open)$"
+        "float, title:^(Authentication Required)$"
+        "float, title:^(Add Folder to Workspace)$"
+        "float,initialtitle:^(Open File)$"
         "float,title:^(Choose Files)$"
         "float,title:^(Save As)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
+        "float,class:^([Xx]dg-desktop-portal-gtk)$"
+        "float, title:^(File Upload)(.*)$"
+        "float, title:^(Choose wallpaper)(.*)$"
+        "float, title:^(Library)(.*)$"
+        "float,class:^(.*dialog.*)$"
+        "float,title:^(.*dialog.*)$"
       ];
 
       layerrule = [
