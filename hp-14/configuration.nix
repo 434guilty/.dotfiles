@@ -217,7 +217,7 @@
   ];
   programs.localsend.enable = true;
   programs.iotop.enable = true;
-  programs.ladybird.enable = true;
+  #programs.ladybird.enable = true;
 
   programs.hyprland = {
     enable = true;
