@@ -29,11 +29,10 @@
     ];
     blacklistedKernelModules = [
       "snd_hda_codec_hdmi"
-     ];
-    extraModprobeConfig =
-    ''
-    options snd_hda_intel power_save=1 power_save_controller=1
-    options snd_sof_pci_intel_tgl power_save=1
+    ];
+    extraModprobeConfig = ''
+      options snd_hda_intel power_save=1 power_save_controller=1
+      options snd_sof_pci_intel_tgl power_save=1
     '';
     kernel.sysctl = {
       # "kernel.nmi_watchdog" = 0;
@@ -198,7 +197,7 @@
     permittedInsecurePackages = [
       "ventoy-1.1.05"
     ];
-  };  
+  };
 
   programs.firefox = {
     enable = true;
