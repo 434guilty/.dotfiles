@@ -7,7 +7,7 @@
     pamixer
     pavucontrol
     playerctl
-    rofi-wayland
+    rofi
     slurp
     swappy
     swww

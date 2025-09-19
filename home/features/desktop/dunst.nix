@@ -9,7 +9,7 @@
     settings = {
       global = {
         browser = "${config.programs.firefox.package}/bin/firefox -new-tab";
-        dmenu = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
+        dmenu = "${pkgs.rofi}/bin/rofi -dmenu";
         follow = "mouse";
         enable_posix_regex = true;
         format = "%s\n%b";
