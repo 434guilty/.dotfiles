@@ -15,6 +15,7 @@
     hyprpicker
     grim
     grimblast
+    dmenu
   ];
 
   home.file = {
@@ -237,12 +238,13 @@
         "idleinhibit fullscreen, class:^(.*celluloid.*)$|^(.*mpv.*)$|^(.*vlc.*)$"
         "idleinhibit fullscreen, class:^(.*[Ss]potify.*)$"
         "idleinhibit fullscreen, class:^(.*LibreWolf.*)$|^(.*floorp.*)$|^(.*brave-browser.*)$|^(.*firefox.*)$|^(.*chromium.*)$|^(.*zen.*)$|^(.*vivaldi.*)$"
-        "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
-        "keepaspectratio, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
-        "move 73% 72%, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
-        "size 25%, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
-        "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
-        "pin, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "tag +picture-in-picture, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "float,           tag:picture-in-picture"
+        "keepaspectratio, tag:picture-in-picture"
+        "move 73% 72%,    tag:picture-in-picture"
+        "size 25%,        tag:picture-in-picture"
+        "float,           tag:picture-in-picture"
+        "pin,             tag:picture-in-picture"
         "opacity 0.90 0.90,class:^(firefox)$"
         "opacity 0.90 0.90,class:^(brave-browser)$"
         "opacity 0.80 0.80,class:^(code-oss)$"
