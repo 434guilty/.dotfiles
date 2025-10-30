@@ -242,7 +242,7 @@
 
   extraServices.auto-cpufreq.enable = true;
   #extraServices.flatpak.enable = true;
-  #extraServices.gaming.enable = true;
+  extraServices.gaming.enable = true;
   extraServices.nh.enable = true;
   #extraServices.qemu.enable = true;
 
