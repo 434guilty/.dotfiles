@@ -266,7 +266,7 @@
     s-tui
     stress-ng
     ventoy
-    du-dust
+    dust
     dua
   ];
 
