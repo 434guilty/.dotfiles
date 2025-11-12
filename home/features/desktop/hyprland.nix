@@ -72,7 +72,7 @@
       };
 
       device = {
-        name = "compx-2.4g-receiver-mouse";
+        name = "2.4g-mouse";
         sensitivity = -0.5;
       };
 
@@ -343,7 +343,7 @@
         "float,title:^(Open)$"
         "float, title:^(Authentication Required)$"
         "float, title:^(Add Folder to Workspace)$"
-        "float,initialtitle:^(Open File)$"
+        "float,initialTitle:^(Open File)$"
         "float,title:^(Choose Files)$"
         "float,title:^(Save As)$"
         "float,title:^(Confirm to replace files)$"
@@ -368,6 +368,7 @@
         "ignorezero,swaync-control-center"
         "ignorealpha 0.5, swaync-control-center"
         "blur,logout_dialog"
+        "ignorezero,logout_dialog"
         "blur,waybar"
       ];
       #env = [
