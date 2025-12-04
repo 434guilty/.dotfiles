@@ -260,6 +260,7 @@
         "opacity 0.80 0.80,class:^(kvantummanager)$"
         "opacity 0.80 0.70,class:^(org.pulseaudio.pavucontrol)$"
         "opacity 0.80 0.70,class:^(.blueman-manager-wrapped)$"
+        "opacity 0.80 0.70,class:^(net.lutris.Lutris)$"
         "opacity 0.80 0.70,class:^(nm-applet)$"
         "opacity 0.80 0.70,class:^(nm-connection-editor)$"
         "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"

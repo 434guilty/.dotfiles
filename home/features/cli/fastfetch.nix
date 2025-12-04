@@ -16,8 +16,9 @@ in {
       settings = {
         "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
         #logo = {
-        # source = "~/.dotfiles/home-manager/apps/fastfetch/pngs/viking-axe-sticker.png";
-        # height = 18;
+        #source = "${./nixos_old.txt}";
+        #type = "file";
+          #height = 18;
         #};
         display = {
           separator = " : ";
