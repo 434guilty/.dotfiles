@@ -205,8 +205,8 @@
   programs.nm-applet.enable = true;
   programs.nm-applet.indicator = true;
   programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    exo
+  programs.thunar.plugins = with pkgs; [
+    xfce4-exo
     mousepad
     thunar-archive-plugin
     thunar-volman

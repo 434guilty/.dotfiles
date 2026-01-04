@@ -24,7 +24,7 @@ pkgs.writeShellScriptBin "hypr-gamemode" ''
           keyword layerrule noanim,swww-daemon ;\
           keyword layerrule noanim,rofi
           "
-          ${pkgs.hyprland}/bin/hyprctl 'keyword windowrulev2 opaque,class:(.*)' # ensure all windows are opaque
+          ${pkgs.hyprland}/bin/hyprctl 'keyword windowrule opaque,class:(.*)' # ensure all windows are opaque
           exit
   else
           ${pkgs.hyprland}/bin/hyprctl reload config-only -q

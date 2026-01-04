@@ -93,6 +93,7 @@
       };
 
       misc = {
+        vfr = true;
         vrr = 0;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
@@ -235,11 +236,18 @@
       ];
 
       windowrule = [
-     "idle_inhibit fullscreen, match:class ^(.*celluloid.*)$|^(.*mpv.*)$|^(.*vlc.*)$"
-     "idle_inhibit fullscreen, match:class ^(.*[Ss]potify.*)$"
-     "idle_inhibit fullscreen, match:class ^(.*LibreWolf.*)$|^(.*floorp.*)$|^(.*brave-browser.*)$|^(.*firefox.*)$|^(.*chromium.*)$|^(.*zen.*)$|^(.*vivaldi.*)$"
-     "tag +picture-in-picture, match:title ^([Pp]icture[-s]?[Ii]n[-s]?[Pp]icture)(.*)$"
-     "float on, keep_aspect_ratio on, move ((monitor_w*0.73)) ((monitor_h*0.72)), size (monitor_w*0.25), pin on, match:tag picture-in-picture"
+        "idle_inhibit fullscreen true, match:class ^(.*celluloid.*)$|^(.*mpv.*)$|^(.*vlc.*)$"
+        "idle_inhibit fullscreen true, match:class ^(.*[Ss]potify.*)$"
+        "idle_inhibit fullscreen true, match:class ^(.*LibreWolf.*)$|^(.*floorp.*)$|^(.*brave-browser.*)$|^(.*firefox.*)$|^(.*chromium.*)$|^(.*zen.*)$|^(.*vivaldi.*)$"
+
+        "match:title = ^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+        "tag = +picture-in-picture"
+        "float = true"
+        "keep_aspect_ratio = true"
+        "move = (monitor_w*0.73) (monitor_h*0.72)"
+        "size = (monitor_w*0.25) (monitor_h*0.25)"
+        "pin = true" 
+          
      "opacity 0.90 0.90, match:class ^(firefox)$"
      "opacity 0.90 0.90, match:class ^(brave-browser)$"
      "opacity 0.80 0.80, match:class ^(code-oss)$"
@@ -334,21 +342,26 @@
       ];
 
       layerrule = [
-        "blur on, ignore_alpha 0, match:namespace rofi"
-        "blur on, ignore_alpha 0, match:namespace notifications"
-        "blur on, ignore_alpha 0.5, match:namespace swaync-notification-window"
-        "blur on, ignore_alpha 0.5, match:namespace swaync-control-center"
-        "blur on, ignore_alpha 0, match:namespace logout_dialog"
-        "blur on, match:namespace waybar"
+      "blur true,match:namespace rofi"
+      "ignore_alpha 0,match:namespace rofi"
+      "blur true,match:namespace notifications"
+      "ignore_alpha 0,match:namespace notifications"
+      "blur true,match:namespace swaync-notification-window"
+      "ignore_alpha 0,match:namespace swaync-notification-window"
+      "blur true,match:namespace swaync-control-center"
+      "ignore_alpha 0,match:namespace swaync-control-center"
+      "blur true,match:namespace logout_dialog"
+ 
       ];
-      #env = [
+      env = [
       #  "GDK_BACKEND, wayland, x11"
       #  "CLUTTER_BACKEND, wayland"
       #  "QT_QPA_PLATFORM=wayland;xcb"
       #  "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
       #  "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
       #  "MOZ_ENABLE_WAYLAND, 1"
-      #];
+         "XDG_CURRENT_DESKTOP,Hyprland"
+      ];
     };
     extraConfig = "
       monitor=,preferred,auto,auto
