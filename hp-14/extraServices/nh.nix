@@ -13,7 +13,7 @@ in {
     programs.nh = {
       enable = true;
       clean.enable = true;
-      clean.extraArgs = "--keep-since 4d --keep 3";
+      clean.extraArgs = "--keep-since 4d --keep 6";
       flake = "/home/m/.dotfiles";
     };
     environment.systemPackages = with pkgs; [

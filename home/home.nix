@@ -29,10 +29,7 @@
     tela-circle-icon-theme
     handbrake
     mediainfo
-    (import ./scripts/swww-random.nix {inherit pkgs;})
-    #(import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     libnotify
-    cliphist
     unrar
     unzip
     imv
@@ -92,23 +89,14 @@
     };
   };
 
-  services.blueman-applet.enable = true;
 
-  stylix.targets.waybar.enable = false;
+  stylix.icons.enable = true;
 
-  stylix.targets.swaync.enable = false;
+  stylix.icons.package = pkgs.tela-circle-icon-theme;
 
-  stylix.targets.rofi.enable = false;
+  stylix.icons.dark = "Tela-circle-dark";
 
-  stylix.targets.hyprlock.enable = false;
-
-  stylix.iconTheme.enable = true;
-
-  stylix.iconTheme.package = pkgs.tela-circle-icon-theme;
-
-  stylix.iconTheme.dark = "Tela-circle-dark";
-
-  stylix.iconTheme.light = "Tela-circle-light";
+  stylix.icons.light = "Tela-circle-light";
 
   stylix.polarity = "dark";
 

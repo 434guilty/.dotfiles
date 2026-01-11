@@ -78,62 +78,16 @@
   #  enable = true;
   #};
 
-  systemd.user.services = {
-    on-battery-power = {
-      enable = true;
-      after = ["network.target"];
-      wantedBy = ["default.target"];
-      description = "On battery power";
-      serviceConfig = {
-        Type = "simple";
-        ExecStartPre = ''/run/current-system/sw/bin/hypr-gamemode'';
-        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p --volume 1.7 ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/power-unplug.oga'';
-        ExecStartPost = ''${pkgs.libnotify}/bin/notify-send -i ${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle-dark/symbolic/status/battery-full-symbolic.svg  "Discharging"'';
-      };
-    };
-    on-ac-power = {
-      enable = true;
-      after = ["network.target"];
-      wantedBy = ["default.target"];
-      description = "On ac power";
-      serviceConfig = {
-        Type = "simple";
-        ExecStartPre = ''/run/current-system/sw/bin/hypr-gamemode'';
-        ExecStart = ''${pkgs.pipewire}/bin/pw-cat -p --volume 1.7 ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/power-plug.oga'';
-        ExecStartPost = ''${pkgs.libnotify}/bin/notify-send -i ${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle-dark/symbolic/status/battery-full-charging-symbolic.svg  "Charger Connected"'';
-      };
-    };
-  };
-
-  services.udev.extraRules = ''
-    SUBSYSTEM=="power_supply", ATTR{online}=="0", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-battery-power.service"
-    SUBSYSTEM=="power_supply", ATTR{online}=="1", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="on-ac-power.service"
-    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="${pkgs.systemd}/bin/systemctl hibernate"
-    ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="med_power_with_dipm"
-  '';
-
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=30m
-  '';
-
   services.btrfs.autoScrub.enable = true;
 
   services.logind.settings.Login.HandlePowerKey = "ignore";
     
   services.journald.extraConfig = "SystemMaxUse=1G";
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
-    theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
-    settings = {
-      Theme = {
-        CursorTheme = "Bibata-Modern-Ice";
-        CursorSize = 16;
-      };
-    };
-  };
+
+  services.displayManager.cosmic-greeter.enable = true;
+  services.desktopManager.cosmic.enable = true;
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -142,7 +96,7 @@
   };
 
   #services.gvfs.enable = true;
-  services.blueman.enable = true;
+  #services.blueman.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -177,14 +131,6 @@
       }
     })
   '';
-  security.pam.services.swaylock = {
-    text = ''
-      auth include login
-    '';
-  };
-
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -193,34 +139,21 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "ventoy-1.1.07"
+      "ventoy-1.1.10"
     ];
   };
 
   programs.firefox = {
     enable = true;
+    preferences = { 
+      "widget.gtk.libadwaita-colors.enabled" = false;
+    };  
   };
   programs.neovim.defaultEditor = true;
   programs.zsh.enable = true;
-  programs.nm-applet.enable = true;
-  programs.nm-applet.indicator = true;
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs; [
-    xfce4-exo
-    mousepad
-    thunar-archive-plugin
-    thunar-volman
-    tumbler
-  ];
   programs.localsend.enable = true;
   programs.iotop.enable = true;
   #programs.ladybird.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.variables = {
     EDITOR = "nvim";
@@ -260,9 +193,9 @@
     kdePackages.qtmultimedia #for sddm theme
     tela-circle-icon-theme
     networkmanagerapplet
-    hyprpolkitagent
+    #hyprpolkitagent
     xarchiver
-    (import ./scripts/hypr-gamemode.nix {inherit pkgs;})
+    #(import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     s-tui
     stress-ng
     ventoy
@@ -324,19 +257,19 @@
     popups = 0.8;
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal
-    ];
-  };
+  # xdg.portal = {
+  #  enable = true;
+  #  wlr.enable = true;
+  #  extraPortals = [
+  #    pkgs.xdg-desktop-portal-gtk
+  #    pkgs.xdg-desktop-portal
+  #  ];
+  #  configPackages = [
+  #    pkgs.xdg-desktop-portal-gtk
+  #    pkgs.xdg-desktop-portal-hyprland
+  #    pkgs.xdg-desktop-portal
+  #  ];
+  #};
 
   users.users.m.shell = pkgs.zsh;
 
