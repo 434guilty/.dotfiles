@@ -113,6 +113,8 @@
     #media-session.enable = true;
   };
 
+  #hardware.system76.power-daemon.enable = true;
+
   security.polkit.enable = true;
   security.rtkit.enable = true;
   security.polkit.extraConfig = ''
@@ -131,6 +133,10 @@
       }
     })
   '';
+
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="med_power_with_dipm"
+  '';  
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
