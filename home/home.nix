@@ -27,9 +27,9 @@
     tuner
     qbittorrent-enhanced
     tela-circle-icon-theme
-    handbrake
+    #handbrake
     mediainfo
-    libnotify
+    #libnotify
     unrar
     unzip
     imv
