@@ -81,13 +81,11 @@
   services.btrfs.autoScrub.enable = true;
 
   services.logind.settings.Login.HandlePowerKey = "ignore";
-    
-  services.journald.extraConfig = "SystemMaxUse=1G";
 
+  services.journald.extraConfig = "SystemMaxUse=1G";
 
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -136,7 +134,7 @@
 
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="med_power_with_dipm"
-  '';  
+  '';
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -151,9 +149,9 @@
 
   programs.firefox = {
     enable = true;
-    preferences = { 
+    preferences = {
       "widget.gtk.libadwaita-colors.enabled" = false;
-    };  
+    };
   };
   programs.neovim.defaultEditor = true;
   programs.zsh.enable = true;
@@ -314,4 +312,5 @@
     auto-optimise-store = true;
     experimental-features = ["nix-command" "flakes"];
   };
+
 }
