@@ -113,24 +113,24 @@
 
   #hardware.system76.power-daemon.enable = true;
 
-  security.polkit.enable = true;
-  security.rtkit.enable = true;
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (
-        subject.isInGroup("users")
-          && (
-            action.id == "org.freedesktop.login1.reboot" ||
-            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-            action.id == "org.freedesktop.login1.power-off" ||
-            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-          )
-        )
-      {
-        return polkit.Result.YES;
-      }
-    })
-  '';
+  #security.polkit.enable = true;
+  #security.rtkit.enable = true;
+  #security.polkit.extraConfig = ''
+  #  polkit.addRule(function(action, subject) {
+  #    if (
+  #      subject.isInGroup("users")
+  #        && (
+  #          action.id == "org.freedesktop.login1.reboot" ||
+  #          action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+  #          action.id == "org.freedesktop.login1.power-off" ||
+  #          action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+  #        )
+  #      )
+  #    {
+  #      return polkit.Result.YES;
+  #    }
+  #  })
+  #'';
 
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="med_power_with_dipm"
