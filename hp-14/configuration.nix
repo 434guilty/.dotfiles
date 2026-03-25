@@ -193,13 +193,9 @@
     alejandra
     bibata-cursors
     nix-prefetch-git
-    #kdePackages.sddm-kcm
-    kdePackages.qtmultimedia #for sddm theme
     tela-circle-icon-theme
     networkmanagerapplet
-    #hyprpolkitagent
     xarchiver
-    #(import ./scripts/hypr-gamemode.nix {inherit pkgs;})
     s-tui
     stress-ng
     ventoy
