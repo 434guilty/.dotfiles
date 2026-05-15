@@ -78,7 +78,7 @@
     };
   };
 
-  programs.lutris.enable = true;
+  #programs.lutris.enable = true;
 
   programs.gitui.enable = true;
 
@@ -86,6 +86,7 @@
     userDirs = {
       enable = true;
       createDirectories = true;
+      setSessionVariables = false;
     };
   };
 
@@ -114,6 +115,8 @@
       "application/pdf" = ["org.pwmt.zathura.desktop"];
     };
   };
+
+  gtk.gtk4.theme = null;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

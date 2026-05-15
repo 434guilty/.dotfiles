@@ -1,5 +1,9 @@
 {
-  home.file.".mozilla/firefox/m/user.js".text = ''
+  config,
+  ...
+}:
+{
+  home.file."${config.xdg.configHome}/mozilla/firefox/m/user.js".text = ''
                      /******
     *    name: arkenfox user.js
     *    date: 4 November 2025

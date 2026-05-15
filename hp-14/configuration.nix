@@ -143,7 +143,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "ventoy-1.1.10"
+      "ventoy-1.1.12"
     ];
   };
 
@@ -201,6 +201,7 @@
     ventoy
     dust
     dua
+    comma
   ];
 
   fonts.packages = with pkgs; [
