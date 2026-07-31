@@ -23,7 +23,7 @@
     aria2
     telegram-desktop
     zapzap
-    mindustry-wayland
+    #mindustry-wayland
     tuner
     qbittorrent-enhanced
     tela-circle-icon-theme
