@@ -143,7 +143,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "ventoy-1.1.12"
+      "ventoy-1.1.17"
     ];
   };
 
