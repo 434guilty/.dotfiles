@@ -82,7 +82,7 @@
 
   services.logind.settings.Login.HandlePowerKey = "ignore";
 
-  services.journald.extraConfig = "SystemMaxUse=1G";
+  #services.journald.settings.Journal = "SystemMaxUse=1G";
 
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
