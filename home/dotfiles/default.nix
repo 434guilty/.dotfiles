@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = [
-    ./arkenfox.nix
+    #./arkenfox.nix
   ];
   #home.file.".config/nvim" = {
   #  source = "${inputs.dotfiles}/nvim";

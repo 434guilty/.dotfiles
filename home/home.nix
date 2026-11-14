@@ -47,7 +47,7 @@
       btop.enable = true;
     };
     desktop = {
-      firefox.enable = true;
+      #firefox.enable = true;
       kitty.enable = true;
       #mangohud.enable = true;
       yazi.enable = true;
